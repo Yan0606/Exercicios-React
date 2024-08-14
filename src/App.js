@@ -73,26 +73,41 @@ function App() {
   };
 
   return (
-    <div style={{ padding: '20px', textAlign: 'center' }}>
+    <div style={{ padding: '20px', textAlign: 'center', backgroundColor: '#1E1E1E', color: '#E0E0E0', minHeight: '100vh' }}>
       <h1>Lista de Exercícios</h1>
-      {[...Array(20).keys()].map((num) => (
-        <button
-          key={num + 1}
-          onClick={() => setExercicioAtual(num + 1)}
-          style={{
-            margin: '10px',
-            padding: '10px 20px',
-            fontSize: '16px',
-            borderRadius: '5px',
-            cursor: 'pointer',
-            backgroundColor: '#4CAF50',
-            color: 'white',
-            border: 'none',
-          }}
-        >
-          Exercício {num + 1}
-        </button>
-      ))}
+      <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center' }}>
+        {[...Array(20).keys()].map((num) => (
+          <div
+            key={num + 1}
+            className="container"
+            style={{
+              margin: '10px',
+              borderRadius: '0.9em',
+              padding: '3px',
+              background: 'linear-gradient(90deg, #03a9f4, #f441a5)',
+              transition: 'all 0.4s ease',
+              position: 'relative',
+            }}
+          >
+            <button
+              onClick={() => setExercicioAtual(num + 1)}
+              style={{
+                fontSize: '1.4em',
+                padding: '0.6em 0.8em',
+                borderRadius: '0.5em',
+                border: 'none',
+                backgroundColor: '#000',
+                color: '#fff',
+                cursor: 'pointer',
+                boxShadow: '2px 2px 3px #000000b4',
+                width: '100%',
+              }}
+            >
+              Exercício {num + 1}
+            </button>
+          </div>
+        ))}
+      </div>
       <div style={{ marginTop: '20px' }}>
         {renderExercicio()}
       </div>
